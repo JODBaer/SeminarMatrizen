@@ -6,12 +6,14 @@
 \rhead{Problemstellung}
 Um Fehler in einer Datenübertragung zu erkennen, könnte man die Daten jeweils doppelt senden,
 also den gleiche Wert immer zweimal versenden. 
-Tritt ein Fehler ein wird sich dies in der Differenz der beiden Werten bemerkbar machen.
+Tritt ein Fehler ein, wird sich dies in der Differenz der beiden Werte bemerkbar machen.
 Aber wie erkennen wir, welcher nun der richtige ist? Die Lösung ist simpel: Wir übertragen den Wert einfach dreimal.
 Wenn jetzt ein Fehler auftritt, kann durch die beiden unveränderten Werten den richtigen bestimmt werden.
 Doch was machen wir, wenn bei dieser Übertragung zwei Fehler auftreten? 
-Oder noch schlimmer: Was wenn zweimal derselbe Fehler auftritt? Die beiden Fehlerhaften Werte überstimmen bei der Evaluierung den gesendeten Datenwert, der dann unwiderruflich verloren geht. 
-Wir könnten dies noch steigern mit vier, fünf oder mehr gleichen Übertragenen Werte. Dies erhöht zwar die Robustheit der gesendeten Daten, führt aber auch dazu, dass wir durch die Mehrfachübertragung nur sehr wenige Nutzdaten versenden können.
+Oder noch schlimmer: Was wenn zweimal derselbe Fehler auftritt? 
+Die beiden fehlerhaften Werte überstimmen bei der Evaluierung den gesendeten Datenwert, der dann unwiderruflich verloren geht. 
+Wir könnten dies noch steigern mit vier, fünf oder mehr gleichen übertragenen Werten.
+Dies erhöht zwar die Robustheit der gesendeten Daten, führt aber auch dazu, dass wir durch die Mehrfachübertragung nur sehr wenige Nutzdaten versenden können.
 Gerade in unserer heutigen Zeit wäre dies ein enorm grosses Problem und aus diesem Grund wurden alternative Ansätze ausgearbeitet um dieses grundlegende Problem zu lösen. 
 %
 %
@@ -82,7 +84,7 @@ Versuchen wir doch, mehr Werte zu übertragen, wie zum Beispiel 7 Werte.
     des \textcolor{blue}{blauen Polynomes} an den Stellen 1, 2, 3, \dots , 7.
 In Abbildung \ref{fig:polynom} ist das zu den \textcolor{blue}{Datenpunkten} gehörige Polynom blau dargestellt,
 die \textcolor{darkgreen}{übertragenen Werte} des Polynoms sind grün, wobei diese Punkte aufgrund von Übertragungsfehler jetzt eine Parabel darstellen. 
-Die Fehlerhaften Punkte lassen sich sehr einfach bestimmen, weil diese nicht auf der ursprünglichen Funktion liegen. 
+Die fehlerhaften Punkte lassen sich sehr einfach bestimmen, weil diese nicht auf der ursprünglichen Funktion liegen. 
 Somit können die roten Punkte auf der Parabel durch die grauen ersetzt werden und sind damit korrigiert. 
 
 Bisher konnten wir von 7 Zahlen zwei Fehler erkennen und korrigieren. Können wir in diesem Beispiel noch mehr Fehler korrigieren? 
@@ -95,13 +97,13 @@ Wir erhöhen dazu die Fehleranzahl Schritt für Schritt:
         Da der zweite \textcolor{red}{Fehler} frei wählbar ist, kann dieser auch auf dem \textcolor{gray}{Konkurrenzpolynom} liegen, wie in der Abbilbung \ref{fig:polynom} zu sehen ist.
         Nun haben wir, ein \textcolor{blue}{originales Polynom} mit \textcolor{darkgreen}{5} übereinstimmenden und ein konkurrenzierendes mit 4 Punkten.
         Da 5 noch grösser als 4 ist, können wir sagen, welches das Originalpolynom ist.
-    \item[\textit{3 Fehler}:] Bei Drei kann genau wie bei 1 oder 2 Fehler, ein konkurenzierendes Polynom mit einem Fehler und zwei originalen Punkten bestimmt werden.
+    \item[\textit{3 Fehler}:] Bei drei kann genau wie bei 1 oder 2 Fehler, ein konkurenzierendes Polynom mit einem Fehler und zwei originalen Punkten bestimmt werden.
         Auch hier sind die anderen Fehler frei wählbar und liegen auf dem Konkurrenzpolynom.
-        Nun ist es so das 5 Punkte auf diesem konkurenzierenden Polynom und 4 Punkte auf dem originalen.
+        Nun ist es so, dass 5 Punkte auf diesem konkurenzierenden Polynom und 4 Punkte auf dem originalen liegen.
         Das Originalpolynom kann nicht mehr gefunden werden.
-    \item[\textit{4 Fehler}:] Bei Vier kann noch erkannt werden, dass Fehler aufgetreten sind, da 3 originale Punkte das ursprüngliche Polynom ergeben.
+    \item[\textit{4 Fehler}:] Bei vier kann noch erkannt werden, dass Fehler aufgetreten sind, da 3 originale Punkte das ursprüngliche Polynom ergeben.
         Somit haben wir mindestens 2 verschieden Polynome, was bedeutet, dass Fehler entstanden sind.
-    \item[\textit{5 Fehler:}] Bei Fünf kann mit den 2 originalen Punkte das Originale Polynom nicht mehr erkannt werden und 
+    \item[\textit{5 Fehler:}] Bei fünf kann mit den 2 originalen Punkte das originale Polynom nicht mehr erkannt werden und 
         somit kann auch keine Aussage mehr gemacht werden, ob Fehler aufgetreten sind oder nicht.
 \end{itemize}
 
@@ -109,7 +111,7 @@ Wir erhöhen dazu die Fehleranzahl Schritt für Schritt:
 	\centering
 	%\includegraphics[width=\textwidth]{papers/reedsolomon/figures/polynom2}
     \input{papers/reedsolomon/tikz/polynomraw.tex}
-	\caption{Polynom $p(x)$ von der Gleichung\eqref{reedsolomon:equation1}}
+	\caption{Polynom $p(x)$ von der Gleichung \eqref{reedsolomon:equation1}}
 	\label{fig:polynom}
 \end{figure}
 \qedhere
@@ -127,7 +129,7 @@ Bilden wir verschieden grosse Polynome und untersuchen diese mit unterschiedlich
     \centering
     \begin{tabular}{ c c | c} 
         \hline
-        Nutzlas & Fehler & Übertragen \\
+        Nutzlast & Fehler & Übertragen \\
         \hline 
         3 & 2 & 7 Werte eines Polynoms vom Grad 2 \\ 
         4 & 2 & 8 Werte eines Polynoms vom Grad 3 \\
@@ -136,7 +138,7 @@ Bilden wir verschieden grosse Polynome und untersuchen diese mit unterschiedlich
         $k$ & $t$ & $k+2t$ Werte eines Polynoms vom Grad $k-1$ \\ 
         \hline
     \end{tabular}
-    \caption{ Fehlerkorrekturstellen Bestimmung.}
+    \caption{ Verschiedne anzahl Übertragungswerte mit unterschiedlichen Nutzlast Daten, um ein Schema der anzahl korrigierbare Fehler zu eerkennen}
     \label{tab:fehlerkorrekturstellen}
 \end{table}
 \par 

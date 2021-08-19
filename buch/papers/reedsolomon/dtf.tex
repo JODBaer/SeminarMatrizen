@@ -5,9 +5,9 @@
 \label{reedsolomon:section:dtf}}
 \rhead{Umwandlung mit DTF}
 Die Grundidee eines fehlerkorrigierenden Code ist, dass Informationen eines Datenpunktes
-durch die Codierung auf viele übertragene Werte verteilt werden.
+ durch die Codierung auf viele übertragene Werte verteilt werden.
 Die Decodierung ist in der Lage, den ursprünglichen Datenwert zu rekonstruieren,
-sogar wenn einzelne wenige übertragene Werte beschädigt worden sind.
+ sogar wenn einzelne wenige übertragene Werte beschädigt worden sind.
 \par
 Die Fourier-Transformation transformiert einen einzelnen Wert, 
 eine Dirac-Funktion, auf ein Spektrum, welches sich über die ganze Frequenzachse erstreckt.
@@ -20,7 +20,7 @@ für Codierung und Decodierung zu verwenden.
 \subsection{Beispiel mit Fehlerkorrektur mit Fourier-Transformation
 \label{reedsolomon:subsection:sendbsp}}
 Das folgende Beispiel soll zeigen, wie die Idee der Fehlerkorrektur umgesetzt wurde. 
-Die Fehlererkennung des Reed-Solomon-Codes funktioniert nach einem sehr Ähnlichen Prinzip.
+Die Fehlererkennung des Reed-Solomon-Codes funktioniert nach einem sehr ähnlichen Prinzip.
 
 %Das folgende Beispiel soll zeigen, wie Fehlerkorrektur möglich ist.
 %Dieses auf eine Art, die der Funktionsweise des Reed-Solomon-Codes,
@@ -58,11 +58,11 @@ In der folgenden Aufzählung werden diese einzelne Schritte erklärt und erläut
  Der Empfänger erkennt daher im allgemeinen nicht, ob und wo Übertragungsfehler aufgetreten sind.
  \item Ohne Übertragungsfehler kann der Signalvektor durch die inverse Fourier-Transformation vollständig
  	wiederhergestellt werden.
- Dazu gehören auch die Nullen an den Fehlerkorrekturstellen 64 - 96.
+ Dazu gehören auch die Nullen an den Fehlerkorrekturstellen 64 -- 96.
  \par 
  Sind Übertragungsfehler aufgetreten, werden an diesen Stellen die Werte von Null abweichen.
  Somit haben wir bereits Fehler erkannt.
- \item Die Werte an den Fehlerkorrekturstellen 64 - 96, die nicht mehr Null sind, nennen wir das Syndrom.
+ \item Die Werte an den Fehlerkorrekturstellen 64 -- 96, die nicht mehr Null sind, nennen wir das Syndrom.
  Im Syndrom steckt nur Information über die Fehler, sie werden durch die inverse Fourier-Transformation erzeugt.
  \item Um die Fehler zu rekonstruieren, kann man versuchen, die Information im Syndrom mit Fourier-Transformation zu transformieren.
  Da das Syndrom nur ein Teil der Fehlerinformation ist, liefert die Fourier-Transformation eine Approximation der Fehler.
@@ -120,5 +120,5 @@ Das Syndrom entstand durch die Wahl ${f_{64}}=0$ bis ${f}_{N-1}=0$ (graue Koeffi
 Die Polynominterpolation und die Fourier-Transformation rechnen beide mit reellen Zahlen.
 Wenn die Approximation nicht mehr genügend gut ist um die Fehler zu erkennen und rekonstruieren,
 dann brauchen wir andere Varianten.
-Um dieser Approximation zu entkommen, verlassen wir die reellen Zahlen und gehen zum endlichen Körpern, oder auch Galois-Körper genannt.
-Dieser bietet uns einige Vorteile.
+Um dieser Approximation zu entkommen, verlassen wir die reellen Zahlen und gehen zu endlichen Körpern, oder auch Galois-Körper genannt.
+Diese bietet uns einige Vorteile.
